@@ -3,8 +3,11 @@ use Dancer ':syntax';
 
 our $VERSION = '0.1';
 
-get '/' => sub {
-    template 'index';
+any '/' => sub {
+    sleep 2;
+    template 'clock' => {
+        datetime => `date -Iseconds`
+    };
 };
 
 true;

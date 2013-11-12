@@ -16,6 +16,7 @@ color: #333;
 h1 {
 font-size: 28px;
 color: #000;
+text-align: center;
 }
 
 a  {color: #03c}
@@ -54,7 +55,6 @@ padding-right: 30px;
 
 
 #header {
-background-image: url("/images/perldancer.jpg");
 background-repeat: no-repeat;
 background-position: top left;
 height: 64px;
