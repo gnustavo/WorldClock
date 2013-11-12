@@ -3,10 +3,16 @@ use Dancer ':syntax';
 
 our $VERSION = '0.1';
 
-any '/' => sub {
+sub datetime {
+    my ($timezone) = @_;
+    local $ENV{TZ} = $timezone;
     sleep 2;
+    return `date -Iseconds`;
+}
+
+any '/' => sub {
     template 'clock' => {
-        datetime => `date -Iseconds`
+        datetime => datetime('UTC')
     };
 };
 
