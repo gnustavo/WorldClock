@@ -6,7 +6,6 @@ our $VERSION = '0.1';
 sub datetime {
     my ($timezone) = @_;
     local $ENV{TZ} = $timezone;
-    sleep 2;
     return `date -Iseconds`;
 }
 
