@@ -6,6 +6,18 @@
     <div id="about-content">
       <h1><% datetime %></h1>
       <form action="/" method="post">
+        <p>Select TimeZone:
+        <select name="timezone">
+          <% FOREACH tz IN timezones %>
+          <option value="<% tz %>"
+                  <% IF tz == timezone %>
+                  selected="selected"
+                  <% END %>
+                  >
+            <% tz %>
+          </option>
+          <% END %>
+        </select></p>
         <p><input type="submit" value="Update"></p>
       </form>
     </div>

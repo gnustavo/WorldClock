@@ -10,9 +10,19 @@ sub datetime {
     return `date -Iseconds`;
 }
 
+sub timezones {
+    my @tzs = grep {/^[A-Z]/} map {substr $_, length('/usr/share/zoneinfo/')} `find /usr/share/zoneinfo/Brazil -not -type d`;
+    chomp(@tzs);
+    unshift @tzs, 'UTC';
+    return \@tzs;
+}
+
 any '/' => sub {
+    my $timezone = params->{'timezone'} || 'UTC';
     template 'clock' => {
-        datetime => datetime('UTC')
+        datetime  => datetime($timezone),
+        timezone  => $timezone,
+        timezones => timezones,
     };
 };
 
