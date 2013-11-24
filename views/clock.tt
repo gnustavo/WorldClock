@@ -5,6 +5,9 @@
     </div>
     <div id="about-content">
       <h1><% datetime %></h1>
+      <form action="/" method="post">
+        <p><input type="submit" value="Update"></p>
+      </form>
     </div>
   </div>
 </div>
